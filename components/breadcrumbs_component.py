@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, Locator
 
 from components.base_component import BaseComponent
@@ -8,4 +9,5 @@ class BreadcrumbsComponent(BaseComponent):
         super().__init__(page, wrapper)
 
     def click_breadcrumbs_by_text(self, text: str):
-        self.wrapper.get_by_text(text).click()
+        with allure.step(f'Нажать на хлебные крошки {text}'):
+            self.wrapper.get_by_text(text).click()

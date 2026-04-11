@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, Locator
 
 from components.base_component import BaseComponent
@@ -19,4 +20,5 @@ class ListOfProductsComponent(BaseComponent):
             f"/ancestor::div[@class='basket-items-list']//input[@class='basket-item-amount-filed']").inner_text()
 
     def enter_count_of_product(self, count: str):
-        self.wrapper.locator('input.basket-item-amount-filed').fill(count)
+        with allure.step(f'Ввести количество товара: {count}'):
+            self.wrapper.locator('input.basket-item-amount-filed').fill(count)

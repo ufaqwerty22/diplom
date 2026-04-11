@@ -15,7 +15,7 @@ def test_cart(page):
     main_page.get_header_bottom_component().click_menu_item_by_text('Детская')
     catalog_page.get_catalog_component().add_product_in_cart_by_name(
         f'{os.getenv('NAME_OF_PRODUCT')}')
-    catalog_page.page.wait_for_timeout(2500)
+    catalog_page.page.wait_for_timeout(500)
     catalog_page.get_added_to_cart_component().click_go_to_cart()
     cart_page.page.wait_for_timeout(1000)
 

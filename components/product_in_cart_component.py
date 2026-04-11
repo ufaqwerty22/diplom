@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, Locator
 
 from components.base_component import BaseComponent
@@ -11,4 +12,5 @@ class ProductInCartComponent(BaseComponent):
             'div.basket-item-block-actions'))
 
     def click_delete_product_btn(self):
-        self.__delete_product_from_cart_btn.click_anyway()
+        with allure.step('Удалить товар из коризны'):
+            self.__delete_product_from_cart_btn.click_anyway()

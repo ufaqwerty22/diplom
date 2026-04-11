@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page
 
 from components.added_to_cart_component import AddedToCartComponent
@@ -14,7 +15,8 @@ class BasePage:
         self.url: str = url
 
     def open(self):
-        self.page.goto(self.url, timeout=1000000)
+        with allure.step('Открыть страницу'):
+            self.page.goto(self.url, timeout=1000000)
 
     def get_header_head_component(self):
         return HeaderHeadComponent(self.page, self.page.locator('div.header-head'))
