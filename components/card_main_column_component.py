@@ -8,4 +8,4 @@ class CardMainColumnComponent(BaseComponent):
         super().__init__(page, wrapper)
 
     def get_photo_locator(self):
-        self.wrapper.locator('div.card-photo-slider__main')
+        return self.wrapper.locator('div.card-photo-slider__main')

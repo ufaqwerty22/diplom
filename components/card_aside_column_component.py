@@ -8,6 +8,6 @@ class CardAsideColumnComponent(BaseComponent):
         super().__init__(page, wrapper)
 
     def get_price_locator(self):
-        self.wrapper.locator('div.card-price__current')
+        return self.wrapper.locator('(//div[contains(@class, "card-price__current")])[2]')
 
     
