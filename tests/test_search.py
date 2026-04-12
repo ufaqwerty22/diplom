@@ -10,6 +10,7 @@ def test_search(page):
     main_page.open()
     main_page.get_header_bottom_component().click_search_button()
     main_page.get_header_bottom_component().fill_search_field(f'{os.getenv('SEARCH_PRODUCT')}')
+    main_page.page.wait_for_timeout(1000)
 
     assert main_page.get_search_result_component().get_count_of_products() > 0
     expect(main_page.get_search_result_component().get_text_first_search_product()).to_contain_text('бутылочка')

@@ -19,4 +19,4 @@ def test_cart(page):
     catalog_page.get_added_to_cart_component().click_go_to_cart()
     cart_page.page.wait_for_timeout(1000)
 
-    assert cart_page.get_list_of_products_component().get_count_of_products() == 1
+    expect(cart_page.get_list_of_products_component().wrapper).to_have_count(1)
