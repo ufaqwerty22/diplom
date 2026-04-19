@@ -18,6 +18,9 @@ class BasePage:
         with allure.step('Открыть страницу'):
             self.page.goto(self.url, timeout=1000000)
 
+    def move_mouse(self, x: int, y: int):
+        self.page.mouse.move(x, y)
+
     def get_header_head_component(self):
         return HeaderHeadComponent(self.page, self.page.locator('div.header-head'))
 

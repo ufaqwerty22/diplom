@@ -24,3 +24,13 @@ class FilterPricesComponent(BaseComponent):
     def click_submit_button(self):
         with allure.step('Нажать на кнопку "Применить" в фильтре цен'):
             self.wrapper.locator('//button[@type="submit" and text()="Применить"]').click()
+
+    def compare_prices_of_products(self, min_price: int, max_price: int, max_items = 60):
+        count = 0
+        for i in range(max_items):
+            price = self.wrapper.locator(
+                f'(//div[contains(@class, "current-price")])[{i + 1}]').inner_text()
+            price_value = int(''.join(filter(str.isdigit, price)))
+            if min_price <= price_value <= max_price:
+                count += 1
+        return count
