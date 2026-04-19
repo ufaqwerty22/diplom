@@ -19,3 +19,12 @@ class CatalogComponent(BaseComponent):
         with allure.step(f'Добавить товар {name} в корзину'):
             self.wrapper.locator(
             f'(//a[contains(text(), "{name}")]/following-sibling::div//a[contains(text(), "В корзину")])[2]').click()
+
+    def count_products_by_word(self, word: str, max_items = 60):
+        count = 0
+        for number in range(max_items):
+            title = self.wrapper.locator(
+            f'(//div[contains(@class, "col-lg-3 col-md-4")])[{number + 1}]').inner_text()
+            if 'коляска' in title.lower():
+                count += 1
+        return count
