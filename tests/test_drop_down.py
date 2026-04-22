@@ -18,4 +18,4 @@ def test_drop_down(page):
 
     expect(catalog_page.page).to_have_url(f'{os.getenv('MAIN_PAGE_URL')}catalog/progulochnye-kolyaski/')
     count_products = catalog_page.get_catalog_component().count_products_by_word('коляска')
-    assert count_products == os.getenv('MAX_COUNT_PRODUCTS')
+    assert count_products == 60

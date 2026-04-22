@@ -21,4 +21,4 @@ def test_filter_prices(page):
     catalog_page.get_filter_prices_component().click_submit_button()
     count_prices = catalog_page.get_filter_prices_component().compare_prices_of_products(500, 2500)
 
-    assert count_prices == os.getenv('MAX_COUNT_PRODUCTS')
+    assert count_prices == 60
