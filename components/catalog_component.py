@@ -25,6 +25,6 @@ class CatalogComponent(BaseComponent):
         for number in range(max_items):
             title = self.wrapper.locator(
             f'(//div[contains(@class, "col-lg-3 col-md-4")])[{number + 1}]').inner_text()
-            if 'коляска' in title.lower():
+            if word in title.lower():
                 count += 1
         return count

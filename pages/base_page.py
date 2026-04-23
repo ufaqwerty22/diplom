@@ -16,7 +16,7 @@ class BasePage:
 
     def open(self):
         with allure.step('Открыть страницу'):
-            self.page.goto(self.url, timeout=1000000)
+            self.page.goto(self.url, wait_until='domcontentloaded')
 
     def move_mouse(self, x: int, y: int):
         self.page.mouse.move(x, y)
